@@ -40,7 +40,7 @@ controller_data_t;
 controller_data_t controller_data;
 
 // Some other variables to blink an LED
-uint32_t interval = 100; //refresh time in ms
+uint32_t interval = 50; //refresh time in ms
 uint8_t increment = 10;
 uint32_t next_time = 0;
 bool led_state = false;
@@ -57,7 +57,7 @@ void setup() {
   //for demo only,   
 }
 
-
+int k = 0;
 // the loop function runs over and over again forever
 void loop() {
   // Flag will be true when the library is ready for new data
@@ -68,6 +68,10 @@ void loop() {
 
     // House keeping function for the library that should be ran right after data is ready
     tundra_tracker.handle_rx_data( );
+    k++;
+    if (k % 100 == 0) {
+        digitalWrite(RP2040_BB_LED, led_state ^= true);
+    }
   }
   
   // Framework for a subroutine that runs every 250ms, not nessesary for all examples but slows down how fast our data is incrementing and allows us
@@ -107,7 +111,7 @@ void loop() {
     // ----------------End of input data simulation ----------------
 
     // Twiddle the LED
-    digitalWrite(RP2040_BB_LED, led_state ^= true);
+//    digitalWrite(RP2040_BB_LED, led_state ^= true);
 
     // Setup the next refresh time
     next_time = millis() + interval;

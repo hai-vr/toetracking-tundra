@@ -1,15 +1,7 @@
 {
-   "device_class" : "controller",
-   "device_serial_number" : "LHR-A6B3A15B",
-   "manufacturer" : "Tundra Labs",
-   "model_number" : "Tundra Hand Controller",
-   "render_model" : "{tmi_hand_controller}/tmi_hand_controller",
-   "resource_root" : "tmi_hand_controller",
-   "input_profile" : "{tmi_hand_controller}/input/tmi_hand_controller_profile.json",
-   "revision" : 1,
+   "device_class" : "generic_tracker",
+   "device_serial_number" : "LHR-EF688ABE",
    "firmware_config" : {
-      "mapped_input" : true,
-      "haptic_driver" : "mapped_input",
       "remap_channel_13" : 6,
       "remap_channel_14" : 7,
       "remap_channel_15" : 8,
@@ -39,6 +31,7 @@
       "plus_z" : [ 0.78140480358183417, -0.62191029879265614, 0.051323885123897739 ],
       "position" : [ -0.0024401757400482893, -0.010472819209098816, 0.014289959333837032 ]
    },
+   "input_profile" : "{tundra_labs}/input/tundra_tracker_profile.json",
    "lighthouse_config" : {
       "channelMap" : [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
       "modelNormals" : [
@@ -81,5 +74,10 @@
          [ 0.0207995865, 0.0127620185, 0.0214322265 ],
          [ 0.0133445486, 0.0204150099, 0.0214014817 ]
       ]
-   }
+   },
+   "manufacturer" : "Tundra Labs",
+   "model_number" : "Tundra Tracker",
+   "render_model" : "{tundra_labs}tundra_tracker",
+   "resource_root" : "tundra_labs",
+   "revision" : 1
 }

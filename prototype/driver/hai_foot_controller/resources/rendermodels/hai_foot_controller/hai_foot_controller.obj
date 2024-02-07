@@ -1,5 +1,5 @@
-mtllib tmi_hand_controller.mtl
-o tmi_hand_controller
+mtllib hai_foot_controller.mtl
+o hai_foot_controller
 v 0.005432 -0.008190 -0.026983
 v 0.005010 -0.007767 -0.027000
 v 0.005155 -0.007683 -0.026772

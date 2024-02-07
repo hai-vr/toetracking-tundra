@@ -1,7 +1,7 @@
 {
     "components": {
         "body": {
-            "filename": "tmi_hand_controller.obj",
+            "filename": "hai_foot_controller.obj",
             "component_local" : {
             "origin": [0.0, 0.0, 0.0],
             "rotate_xyz" : [0.0, 0.0, 0.0]

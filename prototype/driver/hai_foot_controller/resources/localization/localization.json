@@ -1,8 +1,8 @@
 [
     {
         "language_tag": "en_US",
-        "tmi_hand_controller": "Tundra Labs TMI Hand Controller",
-        "tmi_hand_controller_raw": "Tundra Labs TMI Hand Controller Raw",
+        "hai_foot_controller": "Hai Foot Controller",
+        "hai_foot_controller_raw": "Hai Foot Controller Raw",
         "/input/system": "System",
         "/input/a": "A Button",
         "/input/b": "B Button",

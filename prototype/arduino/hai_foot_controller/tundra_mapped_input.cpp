@@ -1,3 +1,6 @@
+
+#ifndef TMI_cpp
+#define TMI_cpp
 #include "tundra_mapped_input.h"
 #include "hardware/spi.h"
 #include "hardware/irq.h"
@@ -195,3 +198,6 @@ void TMI::csn_irq( uint gpio, uint32_t event_mask )
     dma_channel_set_read_addr(  _tx_dma_chan, &_tx_buff, true);
   }  
 }
+
+
+#endif
