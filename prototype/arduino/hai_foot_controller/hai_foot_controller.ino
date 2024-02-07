@@ -2,6 +2,10 @@
 #include "tundra_mapped_input.h"
 
 #define RP2040_BB_LED           (25)
+#define ADC_BIGTOE              (27) // (26) // GPIO27_ADC1 (schematic is wrong, this is pin 5 on the IO0 socket,
+                                             // see https://twitter.com/ImmersiveDevice/status/1755296026301235333)
+#define ADC_SECONDPHALANX       (28) // (27) // GPIO28_ADC2 (schematic is wrong, this is pin 4 on the IO0 socket)
+#define ADC_SPLAY               (29) // (28) // GPIO29_ADC3 (schematic is wrong, this is pin 2 on the IO0 socket)
 
 // Create TMI object to communicate with Tundra Tracker
 TMI tundra_tracker;
@@ -40,7 +44,7 @@ controller_data_t;
 controller_data_t controller_data;
 
 // Some other variables to blink an LED
-uint32_t interval = 50; //refresh time in ms
+uint32_t interval = 100; //refresh time in ms
 uint8_t increment = 10;
 uint32_t next_time = 0;
 bool led_state = false;
@@ -54,7 +58,29 @@ void setup() {
   gpio_set_irq_enabled_with_callback( tundra_tracker.get_cs_pin(), GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &csn_irq );
 
   controller_data.thumbstick_en = 1;
-  //for demo only,   
+  //for demo only,
+
+//    adcAttachPin(ADC_SPLAY);
+//    analogSetAttenuation(ADC_11db);
+//    analogSetWidth(12);
+//    analogReadResolution(12);
+  //  pinMode(ADC_BIGTOE, INPUT_PULLUP);
+  //  pinMode(ADC_SECONDPHALANX, INPUT_PULLUP);
+//    pinMode(ADC_SPLAY, INPUT_PULLUP);
+    // analogReadResolution(12);
+}
+
+float ioAval;
+float ioBval;
+float ioCval;
+float ioCval_prev;
+
+float Comp(float input, float mul, float min, float max) {
+    float result = (input - min * mul) / (max * mul - min * mul);
+    if (result < 0) result = 0;
+    if (result > 1) result = 1;
+    result = 1 - result;
+    return result;
 }
 
 int k = 0;
@@ -73,11 +99,13 @@ void loop() {
         digitalWrite(RP2040_BB_LED, led_state ^= true);
     }
   }
-  
+
   // Framework for a subroutine that runs every 250ms, not nessesary for all examples but slows down how fast our data is incrementing and allows us
   // to blink an LED at human speeds
   if ( millis() > next_time )
   {
+
+
     // Simulate some changing controller data just by incrementing and toggling
     // This is the start of demo code, delete this if you do not want simulated input data
     // ----------------Begin input data simulation ----------------
@@ -116,6 +144,43 @@ void loop() {
     // Setup the next refresh time
     next_time = millis() + interval;
   }
+
+    
+      // float xxxxyyyy = analogRead(ADC_SPLAY);
+      ioAval = analogRead(ADC_BIGTOE);
+      ioBval = analogRead(ADC_SECONDPHALANX);
+      ioCval = analogRead(ADC_SPLAY);
+      if (ioAval < 0) ioAval = 0;
+      if (ioBval < 0) ioBval = 0;
+      if (ioCval < 0) ioCval = 0;
+      ioAval = (float)(ioAval / 290);
+      ioBval = (float)(ioBval / 315);
+      ioCval = (float)(ioCval / 310);
+  //  float ioAcomp = Comp(ioAval, 0.45f, 0.6f);
+  //  float ioBcomp = Comp(ioBval, 0.35f, 0.6f);
+  //  float ioCcomp = Comp(ioCval, 0.52f, 0.6f);
+  float fx = 1;
+  //  float ioAcomp = Comp(ioAval, fx, 0.45f, 0.6f);
+  //  float ioBcomp = Comp(ioBval, fx, 0.35f, 0.6f);
+  //  float ioCcomp = Comp(ioCval, fx, 0.52f, 0.6f);
+  //  float ioAcomp = Comp(ioAval, fx, 0.75f, 1.0f); // 0.75 = 0.45 * (1 / 0.6f)
+  //  float ioBcomp = Comp(ioBval, fx, 0.584f, 1.0f);
+  //  float ioCcomp = Comp(ioCval, fx, 0.867f, 1.0f);
+   float ioAcomp = Comp(ioAval, fx, 0.5, 1.0f); // 0.75 = 0.45 * (1 / 0.6f)
+   float ioBcomp = Comp(ioBval, fx, 0.5, 1.0f);
+   float ioCcomp = Comp(ioCval, fx, 0.5, 1.0f);
+      if (ioAval > 1) ioAval = 1;
+      if (ioBval > 1) ioBval = 1;
+      if (ioCval > 1) ioCval = 1;
+      controller_data.index = ioAcomp * 1023;
+      controller_data.middle = ioBcomp * 1023;
+      controller_data.ring = ioCcomp * 1023;
+      controller_data.pinky = 1023;
+
+      if (ioCval != ioCval_prev) {
+        ioCval_prev = ioCval;
+          controller_data.grip = !controller_data.grip;
+      }
 }
 
 // Callback for SPI Chipselect, just connect in the tmi irq function
