@@ -4,14 +4,9 @@
         "hai_foot_controller": "Hai Foot Controller",
         "hai_foot_controller_raw": "Hai Foot Controller Raw",
         "/input/system": "System",
-        "/input/a": "A Button",
-        "/input/b": "B Button",
-        "/input/trigger": "Trigger",
-        "/input/grip": "Grip",
-        "/input/thumbstick": "Thumbstick",
-        "/input/index": "Index Finger",
-        "/input/middle": "Middle Finger",
-        "/input/ring": "Ring Finger",
-        "/input/pinky": "Pinky Finger"
+        "/input/bigtoe_is_over_secondtoe": "Big Toe is over Second Toe",
+        "/input/bigtoe_curl": "Big Toe (Curl)",
+        "/input/secondtoe_curl": "2nd Toe (Curl)",
+        "/input/fifthtoe_splay": "5th Toe (Splay)"
     }
 ]

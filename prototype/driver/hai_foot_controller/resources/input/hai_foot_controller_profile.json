@@ -12,69 +12,33 @@
           "binding_image_point" : [ 34,45 ],
           "order" : 1
         },
-        "/input/a" : {
+        "/input/bigtoe_is_over_secondtoe" : {
           "type" : "button",
           "click" : true,
           "touch" : true,
           "binding_image_point" : [ 26, 42 ],
-          "order" : 6
-        },
-        "/input/b" : {
-          "type" : "button",
-          "click" : true,
-          "touch" : true,
-          "binding_image_point" : [ 18, 37  ],
-          "order" : 5
-        },
-        "/input/grip" : {
-          "type" : "button",
-          "click" : true,
-          "touch" : true,
-          "binding_image_point" : [ 18, 37  ],
-          "order" : 5
-        },
-        "/input/trigger" : {
-          "type" : "trigger",
-          "click" : true,
-          "touch" : true,
-          "value" : true,
-          "binding_image_point" : [ 11, 60 ],
           "order" : 2
         },
-        "/input/thumbstick" : {
-          "type" : "joystick",
-          "click" : true,
-          "touch" : true,
-          "binding_image_point" : [ 31, 26 ],
-          "order" : 4
-        },
-        "/input/index" : {
+        "/input/bigtoe_curl" : {
           "type" : "trigger",
           "touch" : false,
           "value" : true,
           "binding_image_point" : [ 56, 86 ],
           "order" : 100
         },
-        "/input/middle" : {
+        "/input/secondtoe_curl" : {
           "type" : "trigger",
           "touch" : false,
           "value" : true,
           "binding_image_point" : [ 56, 86 ],
           "order" : 101
         },
-        "/input/ring" : {
+        "/input/fifthtoe_splay" : {
           "type" : "trigger",
           "touch" : false,
           "value" : true,
           "binding_image_point" : [ 56, 86 ],
           "order" : 102
-        },
-        "/input/pinky" : {
-          "type" : "trigger",
-          "touch" : false,
-          "value" : true,
-          "binding_image_point" : [ 56, 86 ],
-          "order" : 103
         },
         "/pose/raw": {
             "type": "pose",
@@ -96,86 +60,28 @@
             "bit_offset": 0,
             "type": "bool"
         },
-        "/input/a/click": {
+        "/input/bigtoe_is_over_secondtoe/click": {
             "bit_offset": 1,
             "type": "bool"
         },
-        "/input/b/click": {
+        "/input/bigtoe_curl/value": {
             "bit_offset": 2,
-            "type": "bool"
-        },
-        "/input/trigger/click": {
-            "bit_offset": 3,
-            "type": "bool"
-        },
-        "/input/grip/click": {
-            "bit_offset": 4,
-            "type": "bool"
-        },
-        "/input/thumbstick/click": {
-            "bit_offset": 5,
-            "type": "bool"
-        },
-        "/input/menu/click": {
-            "bit_offset": 6,
-            "type": "bool"
-        },
-        "/input/thumbstick/touch": {
-            "bit_offset": 7,
-            "type": "bool"
-        },
-        "/input/thumbstick/x": {
-            "bit_offset": 8,
-            "bit_width": 10,
-            "type": "scalar",
-            "min": 0,
-            "max": 1023,
-            "unit": "twosided",
-            "special_value_zero":0
-        },
-        "/input/thumbstick/y": {
-            "bit_offset": 18,
-            "bit_width": 10,
-            "type": "scalar",
-            "min": 0,
-            "max": 1023,
-            "unit": "twosided",
-            "special_value_zero":0
-        },
-        "/input/trigger/value": {
-            "bit_offset": 28,
             "bit_width": 10,
             "type": "scalar",
             "min": 0,
             "max": 1023,
             "unit": "onesided"
         },
-        "/input/index/value": {
-            "bit_offset": 38,
+        "/input/secondtoe_curl/value": {
+            "bit_offset": 12,
             "bit_width": 10,
             "type": "scalar",
             "min": 0,
             "max": 1023,
             "unit": "onesided"
         },
-        "/input/middle/value": {
-            "bit_offset": 48,
-            "bit_width": 10,
-            "type": "scalar",
-            "min": 0,
-            "max": 1023,
-            "unit": "onesided"
-        },
-        "/input/ring/value": {
-            "bit_offset": 58,
-            "bit_width": 10,
-            "type": "scalar",
-            "min": 0,
-            "max": 1023,
-            "unit": "onesided"
-        },
-        "/input/pinky/value": {
-            "bit_offset": 68,
+        "/input/fifthtoe_splay/value": {
+            "bit_offset": 22,
             "bit_width": 10,
             "type": "scalar",
             "min": 0,
