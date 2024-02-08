@@ -190,22 +190,23 @@ void loop() {
   //  float ioAcomp = Comp(ioAval, fx, 0.75f, 1.0f); // 0.75 = 0.45 * (1 / 0.6f)
   //  float ioBcomp = Comp(ioBval, fx, 0.584f, 1.0f);
   //  float ioCcomp = Comp(ioCval, fx, 0.867f, 1.0f);
-   float ioAcomp = Comp(ioAval, fx, 0.5, 1.0f); // 0.75 = 0.45 * (1 / 0.6f)
+   float ioAcomp = Comp(ioAval, fx, 0.7, 1.0f); // 0.75 = 0.45 * (1 / 0.6f)
    float ioBcomp = Comp(ioBval, fx, 0.5, 1.0f);
-   float ioCcomp = Comp(ioCval, fx, 0.5, 1.0f);
+//   float ioCcomp = Comp(ioCval, fx, 0.5, 1.0f);
+    float ioCcomp = Comp(ioCval, fx, 0.75, 0.9f);
       controller_data.bigtoe_curl = ioAcomp * 1023;
       controller_data.secondtoe_curl = ioBcomp * 1023;
       controller_data.fifthtoe_splay = ioCcomp * 1023;
 
 
 if (!toeIsOverSecond) {
-    if (ioAcomp_prev <= 0.25 && ioAcomp > 0.25 && ioBcomp > 0.25) {
+    if (ioAcomp_prev <= 0.15 && ioAcomp > 0.15 && ioBcomp > 0.55) {
         toeIsOverSecond = true;
     }
 }
 else {
-    if (ioAcomp < 0.15) toeIsOverSecond = false;
-    else if (ioBcomp < 0.15) toeIsOverSecond = false;
+    if (ioAcomp < 0.13) toeIsOverSecond = false;
+    else if (ioBcomp < 0.3 && ioAcomp < 0.45) toeIsOverSecond = false;
 }
     controller_data.bigtoe_is_over_secondtoe = toeIsOverSecond ? 1 : 0;
     controller_data.system = 0;
