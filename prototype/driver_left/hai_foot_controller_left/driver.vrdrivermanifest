@@ -1,0 +1,7 @@
+{
+	"alwaysActivate": true,
+	"name" : "hai_foot_controller_left",
+	"directory" : "",
+	"resourceOnly" : false,
+	"hmd_presence" : []
+}

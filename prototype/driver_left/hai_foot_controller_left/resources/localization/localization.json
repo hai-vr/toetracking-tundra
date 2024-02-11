@@ -1,0 +1,12 @@
+[
+    {
+        "language_tag": "en_US",
+        "hai_foot_controller_left": "Hai Foot Controller (Left)",
+        "hai_foot_controller_left_raw": "Hai Foot Controller (Left) Raw",
+        "/input/system": "System",
+        "/input/bigtoe_is_over_secondtoe": "Big Toe is over Second Toe",
+        "/input/bigtoe_curl": "Big Toe (Curl)",
+        "/input/secondtoe_curl": "2nd Toe (Curl)",
+        "/input/fifthtoe_splay": "5th Toe (Splay)"
+    }
+]

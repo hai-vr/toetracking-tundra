@@ -1,8 +1,8 @@
 {
     "jsonid": "input_profile",
-    "controller_type": "hai_foot_controller",
-    "legacy_profile": "hai_foot_controller",
-    "legacy_binding": "{hai_foot_controller}/input/legacy_bindings_hai_foot_controller.json",
+    "controller_type": "hai_foot_controller_left",
+    "legacy_profile": "hai_foot_controller_left",
+    "legacy_binding": "{hai_foot_controller_left}/input/legacy_bindings_hai_foot_controller_left.json",
     "input_bindingui_mode": "single_device",
   "input_bindingui_left": {
     "image": "{simple_tmi}/icons/tracker_status_error.png"
